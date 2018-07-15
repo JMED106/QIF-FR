@@ -1,0 +1,312 @@
+###################################################
+# Config file: system parameters and architecture #
+###################################################
+# General options, default values (can be overridden by command line options)
+#̣ ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Parameters:
+  -delta --delta:
+    description: "Heterogeneity of the network."
+    default:     0.8
+    name:        "<delta>"
+    choices:     ~
+  -etae --etae:
+    description: "Mean excitatory external current."
+    default:     1.0
+    name:        "<etae>"
+    choices:     ~
+  -etai --etai:
+    description: "Mean inhibitory external current."
+    default:     -1.0
+    name:        "<etai>"
+    choices:     ~
+  -gamma --gamma:
+    description: "Width of the distribution of reversal potentials."
+    default:     1.0
+    name:        "<gamma>"
+    choices:     ~
+  -ae --ae:
+    description: "Excitatory conductance."
+    default:     1.0
+    name:        "<ae>"
+    choices:     ~
+  -ai --ai:
+    description: "Inhibitory conductance."
+    default:     1.0
+    name:        "<ai>"
+    choices:     ~            
+  -reverse --reverse:
+    description: "Mean excitatory reversal potential."
+    default:     10.0
+    name:        "<reverse>"
+    choices:     ~
+  -reversi --reversi:
+    description: "Mean inhibitory reversal potential."
+    default:     -10.0
+    name:        "<reversi>"
+    choices:     ~    
+  -taue --taume:
+    description: "Excitatory membrane time constant."
+    default:     1.0
+    name:        "<taume>"
+    choices:     ~
+  -taui --taumi:
+    description: "Inhibitory membrane time constant."
+    default:     0.5
+    name:        "<taumi>"
+    choices:     ~
+  -delay --delay:
+    description: "Delay constant."
+    default:     0.0
+    name:        "<delay>"
+    choices:     ~
+  -upd --updrate:
+    description: "Update rate."
+    default:     100
+    name:        "<update_rate>"
+    choices:     ~
+  -vpeak --vpeak:
+    description: "Peak potential."
+    default:     -48.0
+    name:        "<peak_pot>"
+    choices:     ~
+  -vreset --vreset:
+    description: "Reset potential."
+    default:     -68.0
+    name:        "<reset_pot>"
+    choices:     ~
+  -revers --reversal:
+    description: "Reversal potential."
+    default:     -50.0
+    name:        "<revers_pot>"
+    choices:     ~
+  -taud --taumd:
+    description: "Synaptic decay time constant."
+    default:     1.0
+    name:        "<taumd>"
+    choices:     ~
+  -rperiod --rperiod:
+    description: "Absolute refractory time.."
+    default:     0.0
+    name:        "<rperiod>"
+    choices:     ~    
+Simulation constants:
+  -tfinal --tfinal:
+    description: "Total time of simulation (in dt time, a.u.)."
+    default:     40.0
+    name:        "<tfinal>"
+    choices:     ~
+  -loop --loop:
+    description: "Multiplier of total time (variables will still have total_time length)"
+    default:     1.0
+    name:        "<loop>"
+    choices:     ~
+  -dt --timestep:
+    description: "Time step (a.u.)."
+    default:     0.001
+    name:        "<dt>"
+    choices:     ~
+  -t0 --inittime:
+    description: "Initial time (a.u.)."
+    default:     0.0
+    name:        "<t0>"
+    choices:     ~
+  -ne --nexc:
+    description: "Proportion of excitatory neurons, ne in [0, 1]"
+    default:     0.5
+    name:        "<ne>"
+    choices:     ~
+  -ni --ninh:
+    description: "Proportion of inhibitory neurons, ni in [0, 1]"
+    default:     0.5
+    name:        "<ni>"
+    choices:     ~
+  -faketau --faketau:
+    description: "General Time scale."
+    default:     0.02
+    name:        "<faketau>"
+    choices:     ~
+  -n --nodes:
+    description: "Number of nodes in the network."
+    default:     2
+    name:        "<n>"
+    choices:     ~
+  -cond --cond:
+    description: "Conductance based neurons."
+    default:     False
+    name:        "<g>"
+    choices:     [False, True]    
+Network:
+  -c --cprofile:
+    description: "Connectivity matrix style."
+    default:     'fs'
+    name:        "<cnt>"
+    choices:     ['uniform', 'mex-hat', 'fs', 'pecora1']
+  -jee --eecoupling:
+    description: "Excitatory self Coupling."
+    default:     0.0
+    name:        "<jee>"
+    choices:     ~
+  -jii --iicoupling:
+    description: "Inhibitory self-Coupling."
+    default:     0.0
+    name:        "<jii>"
+    choices:     ~
+  -jei --eicoupling:
+    description: "E->I Cross Coupling."
+    default:     3.0
+    name:        "<jei>"
+    choices:     ~
+  -jie --iecoupling:
+    description: "I->E Cross Coupling."
+    default:     1.0
+    name:        "<jie>"
+    choices:     ~
+  -j0 --coupling:
+    description: "Global Synaptic coupling strength."
+    default:     0.0
+    name:        "<j0>"
+    choices:     ~
+  -dg --degree:
+    description: "in-degree of the network (in percentage relative to the network size)."
+    default:     0.4
+    name:        "<dg>"
+    choices:     ~
+Network, spiking neuron properties:
+  -N --popsize:
+    description: "Number of neurons for the spiking neuron system."
+    default:     50000
+    name:        "<N>"
+    choices:     ~
+  -D --distribution:
+    description: "Distribution of external currents for the spiking neuron system ('lorentz', 'gauss', 'noise': non-distributed but under GWN)"
+    default:     'lorentz'
+    name:        "<distribution>"
+    choices:     ['lorentz', 'gauss', 'noise']
+  -G --reversdistri:
+    description: "Distribution of reversal potentials for the spiking neuron system ('lorentz', 'gauss', 'noise': non-distributed but under GWN)"
+    default:     'lorentz'
+    name:        "<reversdistri>"
+    choices:     ['lorentz', 'gauss', 'noise']    
+Firingrate:
+  -sw --sliding_window:
+    description: "Sliding window in time units (simulation time units)"
+    default:     0.05
+    name:        "<sw>"
+    choices:     ~
+  -spr --sampling_interval:
+    description: "Sampling interval which defines the rate of sampling. (in simulation time units)."
+    default:     0.05
+    name:        "<sp_inter>"
+    choices:     ~
+Perturbation:
+  -modes --pmodes:
+    description: "Spatial modes of the perturbation."
+    default:     [1]
+    name:        "<modes>"
+    choices:     ~
+  -sprofile --spatialProfile:
+    description: "Spatial profile of the perturbation."
+    default:     'fourier'
+    name:        "<spatial-profile>"
+    choices:     ['fourier', 'gauss']
+  -tprofile --temporalProfile:
+    description: "Temporal Profile."
+    default:     'pulse'
+    name:        "<pert-type>"
+    choices:     ['pulse', 'oscil', 'chirp']
+  -amp --amplitude:
+    description: "Amplitude of the perturbation."
+    default:     6.0
+    name:        "<amplitude>"
+    choices:     ~
+  -phi --phase:
+    description: "Phase of the perturbation."
+    default:     0.0
+    name:        "<phase>"
+    choices:     ~
+  -sym --symmetry:
+    description: "Symmetry of the perturbation."
+    default:     0.0
+    name:        "<symmetry>"
+    choices:     ~
+  -pd --pulseduration:
+    description: "Duration of the pulse (a.u.)"
+    default:     24.0
+    name:        "<pd>"
+    choices:     ~
+  -p0 --onset:
+    description: "Onset of the pulse (a.u.)"
+    default:     10.0
+    name:        "<p0>"
+    choices:     ~
+  -rise --rise:
+    description: "Pulse rise time."
+    default:     0.01
+    name:        "<rise>"
+    choices:     ~
+  -decay --decay:
+    description: "Pulse decay time."
+    default:     0.0
+    name:        "<deceay>"
+    choices:     ~
+Simulation options (non-mutable):
+  -f --file:
+    description: "Configuration file."
+    default:     "./conf_cond2.txt"
+    name:        "<conf file>"
+    choices:     ~
+  -ic --initconds:
+    description: "Override initial conditions generator."
+    default:     False
+    name:        "<initconds>"
+    choices:     [False ,True]
+  -ext --external:
+    description: "Load external custom point."
+    default:     None
+    name:        "<ext_cond>"
+    choices:     ~
+  -oic --overrideic:
+    description: "Override initial conditions generator."
+    default:     False
+    name:        "<overinitconds>"
+    choices:     [True, False]
+  -systems --systems:
+    description: "Systems to be simulated."
+    default:     ['fr']
+    name:        "<system>"
+    choices:     ['if-fr','qif-fr', 'fr', 'wc', 'nf', 'wc-nf', 'if-nf','qif-nf', 'all']
+  -nos --nosave:
+    description: "Don't save data to dictionary."
+    default:     False
+    name:        "<no-save>"
+    choices:     ~
+  -db --debug:
+    description: "Debugging level. Default is INFO."
+    default:     DEBUG
+    name:        "<debug>"
+    choices:     [DEBUG, INFO, ERROR, WARNING, CRITICAL]
+  -pl --plot:
+    description: "Saving minimal data and plotting."
+    default:     False
+    name:        "<plot>"
+    choices:     [True, False]
+  -gpl --gplot:
+    description: "Preliminary plotting with gnuplot."
+    default:     False
+    name:        "<gplot>"
+    choices:     [True, False]
+  -rast --raster:
+    description: "Saving raster plot."
+    default:     False
+    name:        "<raster>"
+    choices:     [True, False]
+  -Frq --freqAnalysis:
+    description: "Frequency analysis."
+    default:     False
+    name:        "<freqA>"
+    choices:     [True, False]
+  -ap --allprmts:
+    description: "Display all parameters."
+    default:     False
+    name:        "<ap>"
+    choices:     [True, False]
